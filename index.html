@@ -3,22 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Message App</title>
+    <title>User Details App</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <textarea id="messageInput" placeholder="Write your message..."></textarea>
-        <button id="sendMessageBtn">Send Message</button>
+        <h1>User Details Form</h1>
+        <form id="userDetailsForm">
+            <div class="form-group">
+                <label for="firstNameInput">First Name:</label>
+                <input type="text" id="firstNameInput" required>
+            </div>
+            <div class="form-group">
+                <label for="lastNameInput">Last Name:</label>
+                <input type="text" id="lastNameInput" required>
+            </div>
+            <div class="form-group">
+                <label for="graduationYearInput">Year of Graduation:</label>
+                <input type="text" id="graduationYearInput" required>
+            </div>
+            <div class="form-group">
+                <label for="dobInput">Date of Birth:</label>
+                <input type="date" id="dobInput" required>
+            </div>
+            <div class="form-group">
+                <label for="phoneInput">Phone No.:</label>
+                <input type="tel" id="phoneInput" required>
+            </div>
+            <div class="form-group">
+                <label for="emailInput">Email:</label>
+                <input type="email" id="emailInput" required>
+            </div>
+            <div class="form-group">
+                <label for="skillsInput">Skills:</label>
+                <input type="text" id="skillsInput" required>
+            </div>
+            <div class="form-group">
+                <label for="experienceInput">Year of Experience:</label>
+                <input type="number" id="experienceInput" required>
+            </div>
+            <div class="form-group">
+                <label for="descriptionInput">About Me:</label>
+                <textarea id="descriptionInput" rows="4" required></textarea>
+            </div>
+            <button id="sendButton" type="button">Send Details</button>
+        </form>
     </div>
-    <div class="messages" id="messages">
-        <!-- Messages will be displayed here -->
+    <div class="user-details" id="userDetails">
+        <!-- User details will be displayed here -->
     </div>
-
-    
     <script src="app.js" type="module">
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
             // TODO: Add SDKs for Firebase products that you want to use
             // https://firebase.google.com/docs/web/setup#available-libraries
           
@@ -37,5 +73,6 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebas
             const app = initializeApp(firebaseConfig);
 
     </script>
+
 </body>
 </html>

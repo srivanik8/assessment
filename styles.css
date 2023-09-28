@@ -1,25 +1,97 @@
 body {
     font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #F2FF49, #e7f074);
+    margin: 0;
+    padding: 0;
 }
 
 .container {
+    margin-top: 3%;
+    margin-left: 25%;
+    max-width: 700px;
+    
+    
+    padding: 20px;
+    border-radius: 12px;
+    
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.container h1 {
     text-align: center;
-    margin-top: 50px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="tel"],
+input[type="date"],
+input[type="email"],
+textarea {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
 }
 
 textarea {
-    width: 100%;
-    padding: 10px;
+    resize: vertical;
 }
 
 button {
     padding: 10px 20px;
-    background-color: #007BFF;
+    background-color: #D91E36;
+    border-radius: 12px;
     color: white;
     border: none;
     cursor: pointer;
+    font-size: 16px;
 }
 
-.messages {
+.user-details {
     margin-top: 20px;
+   
+    padding: 20px;
+    border-radius: 5px;
+    
+    
+}
+
+.user-details p {
+    margin-bottom: 10px;
+    
+}
+
+
+.user-details {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    gap: 24px;
+}
+
+.user-details .user-card {
+    
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #d9e25d;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.user-details .user-card p {
+    margin-bottom: 10px;
+    
 }
