@@ -1,5 +1,9 @@
+// Initialize Firebase with your Firebase configuration (same as Step 4 in the previous answer)
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
-import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
+import { getDatabase  , ref , push , onValue , remove } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
+
+
+
 
 const appSettings = {
     databaseURL: "https://assignment-38238-default-rtdb.firebaseio.com/"
@@ -7,6 +11,9 @@ const appSettings = {
 
 const app = initializeApp(appSettings)
 const db = getDatabase(app)
+
+
+// Get a reference to the Firebase database
 
 // Get DOM elements
 const messageInput = document.getElementById('messageInput');
@@ -31,14 +38,13 @@ sendMessageBtn.addEventListener('click', () => {
     });
 });
 
-// Function to fetch messages from Firebase in real-time
-function fetchMessages() {
-    const messagesRef = ref(db, 'messages'); // Reference to the 'messages' node in the database
+const databaseURL = "https://assignment-38238-default-rtdb.firebaseio.com/";
 
-    // Listen for changes in real-time
-    onValue(messagesRef, (snapshot) => {
-        const data = snapshot.val();
-        if (data) {
+// Function to fetch messages from Firebase using REST API
+function fetchMessages() {
+    fetch(`${databaseURL}/messages.json`)
+        .then(response => response.json())
+        .then(data => {
             messagesDiv.innerHTML = ''; // Clear previous messages
             for (const key in data) {
                 const message = data[key].message;
@@ -46,11 +52,12 @@ function fetchMessages() {
                 messageElement.textContent = message;
                 messagesDiv.appendChild(messageElement);
             }
-        }
-    }, (error) => {
-        console.error("Error fetching messages: ", error);
-    });
+        })
+        .catch(error => {
+            console.error("Error fetching messages: ", error);
+        });
 }
 
-// Fetch messages initially and set up real-time listener
+// Fetch messages initially and set up a periodic fetch (e.g., every 5 seconds)
 fetchMessages();
+setInterval(fetchMessages, 1000);
